@@ -1,16 +1,26 @@
 import React, { Component } from 'react';
-import { View, Text, StyleSheet, Image, Dimensions } from 'react-native';
+import { View, Text, StyleSheet, Image, Dimensions, TouchableNativeFeedback } from 'react-native';
+import config from './config';
 
 class Copygram extends Component {
     // constructor sets defaults for component
     constructor() {
         super()
             this.state = {
-                screenWidth: Math.floor(Dimensions.get("window").width)
+                liked: false,
+                screenWidth: Math.floor(Dimensions.get("window").width),
+                imageHeight: Math.floor(Dimensions.get("window").width) * 1.1
             }
         };
 
+    likeToggled(){
+        this.setState({
+            liked: !this.state.liked
+        })
+    }
+
     render() { 
+        // const imageUri = "https://lh3.googleusercontent.com/2OtUnlP_Kx1JGXcZcydNmW8PTDxCW26DJG3Gh-bQ4wTOtInmrX586vKiAqHde_fnCo81wY9qwDX_4nG6A3OD-4dhPA" + "=s" + this.state.screenWidth + "-c";
         return(
         <View style= {{ flex: 1, width: 100 + '%', height: 100 + '%' }}>
             <View style={styles.tempNav} >
@@ -28,10 +38,16 @@ class Copygram extends Component {
                 <Text style= {{ fontSize: 30 }}>...</Text>
             </View>
             </View>
+            <TouchableNativeFeedback onPress={() => { this.likeToggled() }}>
             <Image
             source={{ uri: "https://lh3.googleusercontent.com/2OtUnlP_Kx1JGXcZcydNmW8PTDxCW26DJG3Gh-bQ4wTOtInmrX586vKiAqHde_fnCo81wY9qwDX_4nG6A3OD-4dhPA" }}
-            style={{ width: this.state.screenWidth, height: 450 }} />
-
+            style={{ width: this.state.screenWidth, height: this.state.imageHeight }} />
+            </TouchableNativeFeedback>
+            <View style= { styles.iconBar }>
+                <Image style= {[styles.icon, { height: 45, width: 45, tintColor: 'rgb(252, 61, 57)' }]} source= {config.images.heartIcon} />
+                <Image style= {[styles.icon, { height: 36, width: 36 }]} source= {config.images.bubbleIcon} />
+                <Image resizeMode="stretch" style= {[styles.icon, { height: 40, width: 40 }]} source= {config.images.arrowIcon} />
+                </View>
         </View>
         )
     }
@@ -51,7 +67,7 @@ const styles = StyleSheet.create({
 
     userBar: {
         width: 100+'%',
-        height: 50,
+        height: config.styleConstants.rowHeight,
         backgroundColor: "rgb(250, 250, 250)",
         flexDirection: "row",
         paddingHorizontal: 10,
@@ -62,7 +78,20 @@ const styles = StyleSheet.create({
         height: 40,
         width: 40,
         borderRadius: 20
+    },
 
+    iconBar: {
+        height: config.styleConstants.rowHeight,
+        width: 100 + '%',
+        borderColor: "rgb(233,233,233)",
+        borderTopWidth: StyleSheet.hairlineWidth,
+        borderBottomWidth: StyleSheet.hairlineWidth,
+        flexDirection: "row",
+        alignItems: "center"
+    },
+    
+    icon: {
+        marginLeft: 5
     }
 
 })
