@@ -1,9 +1,16 @@
-import React, { Component } from 'react'
-import { View, Text, StyleSheet, Image } from 'react-native'
+import React, { Component } from 'react';
+import { View, Text, StyleSheet, Image, Dimensions } from 'react-native';
 
 class Copygram extends Component {
+    // constructor sets defaults for component
+    constructor() {
+        super()
+            this.state = {
+                screenWidth: Math.floor(Dimensions.get("window").width)
+            }
+        };
 
-    render() {
+    render() { 
         return(
         <View style= {{ flex: 1, width: 100 + '%', height: 100 + '%' }}>
             <View style={styles.tempNav} >
@@ -18,11 +25,12 @@ class Copygram extends Component {
                 <Text style={{ marginLeft: 10 }}>Bruce Goose</Text>
             </View>
             <View>
-                <Text>...</Text>
+                <Text style= {{ fontSize: 30 }}>...</Text>
             </View>
             </View>
-            <Image style={{ width: 100 + '%', height: 200 }} 
-            source={{uri: "https://lh3.googleusercontent.com/2OtUnlP_Kx1JGXcZcydNmW8PTDxCW26DJG3Gh-bQ4wTOtInmrX586vKiAqHde_fnCo81wY9qwDX_4nG6A3OD-4dhPA"}} />
+            <Image
+            source={{ uri: "https://lh3.googleusercontent.com/2OtUnlP_Kx1JGXcZcydNmW8PTDxCW26DJG3Gh-bQ4wTOtInmrX586vKiAqHde_fnCo81wY9qwDX_4nG6A3OD-4dhPA" }}
+            style={{ width: this.state.screenWidth, height: 450 }} />
 
         </View>
         )
@@ -46,8 +54,8 @@ const styles = StyleSheet.create({
         height: 50,
         backgroundColor: "rgb(250, 250, 250)",
         flexDirection: "row",
-        marginHorizontal: 10,
-        justifyContent: "stretch"
+        paddingHorizontal: 10,
+        justifyContent: "space-between"
     },
 
     userPic: {
