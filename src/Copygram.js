@@ -10,7 +10,9 @@ class Copygram extends Component {
         <View style= {{ flex: 1, width: 100 + '%', height: 100 + '%' }}>
             <View style={styles.tempNav} >
                 <Text>Copygram</Text>
+                <View style={{flexDirection: "column", flex: 1, width: 100 + '%'}}>
                 <PostFeed />
+                </View>
             </View>
         </View>
         )
