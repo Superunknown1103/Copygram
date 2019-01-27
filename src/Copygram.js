@@ -7,13 +7,11 @@ import { PostFeed } from './components/container'
 class Copygram extends Component {
     render() { 
         return(
-        <View style= {{ flex: 1, width: 100 + '%', height: 100 + '%' }}>
+        <View>
             <View style={styles.tempNav} >
                 <Text>Copygram</Text>
-                <View style={{flexDirection: "column", flex: 1, width: 100 + '%'}}>
-                <PostFeed />
                 </View>
-            </View>
+                <PostFeed />
         </View>
         )
     }

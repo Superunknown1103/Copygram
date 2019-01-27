@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, Text, StyleSheet, Image, Dimensions, TouchableNativeFeedback, ScrollView } from 'react-native';
+import { View, Text, StyleSheet, Image, Dimensions, TouchableOpacity, ScrollView } from 'react-native';
 import config from '../../config';
 
 class Post extends Component {
@@ -36,11 +36,11 @@ class Post extends Component {
             </View>
             </View>
             {/* to do: add flash on click of image */}
-            <TouchableNativeFeedback onPress={() => { this.likeToggled() }}>
+            <TouchableOpacity onPress={() => { this.likeToggled() }}>
             <Image
             source={{ uri: "https://lh3.googleusercontent.com/2OtUnlP_Kx1JGXcZcydNmW8PTDxCW26DJG3Gh-bQ4wTOtInmrX586vKiAqHde_fnCo81wY9qwDX_4nG6A3OD-4dhPA" }}
             style={{ width: this.state.screenWidth, height: this.state.imageHeight }} />
-            </TouchableNativeFeedback>
+            </TouchableOpacity>
             <View style= { styles.iconBar }>
                 <Image style= {[styles.icon, { height: 45, width: 45, tintColor: heartIconColor }]} source= {config.images.heartIcon} />
                 <Image style= {[styles.icon, { height: 36, width: 36 }]} source= {config.images.bubbleIcon} />
