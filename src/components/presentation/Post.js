@@ -20,7 +20,10 @@ class Post extends Component {
     }
 
     render() { 
+        // console.log(this.props.item);
         // const imageUri = "https://lh3.googleusercontent.com/2OtUnlP_Kx1JGXcZcydNmW8PTDxCW26DJG3Gh-bQ4wTOtInmrX586vKiAqHde_fnCo81wY9qwDX_4nG6A3OD-4dhPA" + "=s" + this.state.screenWidth + "-c";
+        const imageSelection = (this.props.item %2 == 0) ? "https://lh3.googleusercontent.com/Fe5Jy9GBmS9y33LLiEAGoT8FC-VZfwvBrfFwNZpNjCQIysuEX0Mmp1b9ETkj90XHkCr-5CNWqdtkVFo2EWH4CgQfits"
+        : "https://lh3.googleusercontent.com/2OtUnlP_Kx1JGXcZcydNmW8PTDxCW26DJG3Gh-bQ4wTOtInmrX586vKiAqHde_fnCo81wY9qwDX_4nG6A3OD-4dhPA";
         const heartIconColor = this.state.liked ? "rgb(252, 61, 57)" : null
         return(
         <View>
@@ -38,7 +41,7 @@ class Post extends Component {
             {/* to do: add flash on click of image */}
             <TouchableOpacity onPress={() => { this.likeToggled() }}>
             <Image
-            source={{ uri: "https://lh3.googleusercontent.com/2OtUnlP_Kx1JGXcZcydNmW8PTDxCW26DJG3Gh-bQ4wTOtInmrX586vKiAqHde_fnCo81wY9qwDX_4nG6A3OD-4dhPA" }}
+            source={{ uri: imageSelection }}
             style={{ width: this.state.screenWidth, height: this.state.imageHeight }} />
             </TouchableOpacity>
             <View style= { styles.iconBar }>
