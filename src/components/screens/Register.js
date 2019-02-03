@@ -12,8 +12,12 @@ class Register extends Component {
         };
     }
 
-    updateText(text){
-        alert(text);
+    updateText(text, field){
+        let credentials = Object.assign(this.state.credentials)
+        credentials[field] = text;
+        this.setState({
+            credentials: newCredentials
+        })
     }
 
     register() {
@@ -33,10 +37,17 @@ class Register extends Component {
                 backgroundColor: "rgb(157, 203, 239)"
             }}>
             <Text>REGISTER PAGE</Text>
-            <TextInput placeholder="Username" style={styles.input} />
             <TextInput
-            onChangeText={text => this.updateText(text)} 
+            value={this.state.login}
+            autoCorrect={false}
+            onChangeText={text => this.updateText(text, "login")} 
+            placeholder="Username" 
+            style={styles.input} />
+            <TextInput
+            value={this.state.password}
+            onChangeText={text => this.updateText(text, 'password')} 
             secureTextEntry 
+            autoCorrect={false}
             placeholder="Password" 
             style={styles.input} 
             />
