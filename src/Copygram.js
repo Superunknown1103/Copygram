@@ -1,19 +1,25 @@
 import React, { Component } from 'react';
 import { View, StyleSheet } from 'react-native';
-import { MainFeed, Login } from './components/screens';
-import { createStackNavigator, createAppContainer } from 'react-navigation';
+import { MainFeed, Login, Register, Camera, Profile } from './components/screens';
+import { createStackNavigator, createSwitchNavigator, createAppContainer, createBottomTabNavigator } from 'react-navigation';
 
-const MainNav = createStackNavigator({
-    main: {
-        screen: MainFeed
-    },
-    login: {
-        screen: Login
-    }
-},
-    {
-        initialRouteName: "login",
-    }
+// bottom tab navigation once logged in
+const Tabs = createBottomTabNavigator({
+    feed: MainFeed,
+    camera: Camera,
+    profile: Profile
+})
+
+const IntroNav = createStackNavigator({
+    register: Register,
+    login: Login
+})
+
+// navigation that controls app
+const MainNav = createSwitchNavigator({
+    intro: IntroNav,
+    main: Tabs
+}
 );
 
 const MainStack = createAppContainer(MainNav);

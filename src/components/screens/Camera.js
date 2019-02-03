@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
-import { View, Text, TouchableOpacity, TextInput, Button } from 'react-native'
+import { View, Text, TouchableOpacity } from 'react-native'
 
-class Login extends Component {
+class Camera extends Component {
     login() {
         // Navigate to the Main App
         this.props.navigation.navigate("main");
@@ -15,10 +15,10 @@ class Login extends Component {
             alignItems: "center"
             }}
             onPress={() => { this.login(); }}>
-                <Text>New user?</Text>
+                <Text>Future Camera Page</Text>
             </TouchableOpacity>
         )
     }
 }
 
-export default Login;
+export default Camera;
