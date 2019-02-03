@@ -2,10 +2,10 @@ import React, { Component } from 'react'
 import { View, Text, TouchableOpacity } from 'react-native'
 
 class Login extends Component {
-    // login() {
-    //     // Navigate to the Main App
-    //     // this.props.navigation.navigate("main");
-    // }
+    login() {
+        // Navigate to the Main App
+        this.props.navigation.navigate("main");
+    }
 
     render(){
         return(

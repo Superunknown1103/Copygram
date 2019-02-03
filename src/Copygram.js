@@ -12,15 +12,17 @@ const MainNav = createStackNavigator({
     }
 },
     {
-        initialRouteName: "main"
+        initialRouteName: "login",
     }
-); 
+);
 
 const MainStack = createAppContainer(MainNav);
 
 class Copygram extends Component {
-    render(){
-        return <MainStack />
+    render() {
+        return (
+            <MainStack />
+        )
     }
 }
 

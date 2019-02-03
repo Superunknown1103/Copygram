@@ -4,7 +4,7 @@ import config from '../../config';
 import { PostFeed } from '../container'
 
 
-class Copygram extends Component {
+class MainFeed extends Component {
     render() { 
         return(
         <View>
@@ -30,4 +30,4 @@ const styles = StyleSheet.create({
     }
 })
 
-export default Copygram;
+export default MainFeed;
