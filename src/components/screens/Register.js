@@ -6,15 +6,15 @@ class Register extends Component {
         super()
         this.state = {
             credentials: {
-              login: "",
+              email: "",
               password: ""  
             }
         };
     }
 
     updateText(text, field){
-        let credentials = Object.assign(this.state.credentials)
-        credentials[field] = text;
+        let newCredentials = Object.assign(this.state.credentials)
+        newCredentials[field] = text;
         this.setState({
             credentials: newCredentials
         })
@@ -23,6 +23,7 @@ class Register extends Component {
     register() {
         // send credentials to server
         // if signup success
+        JSON.stringify(this.state.credentials);
         this.props.navigation.navigate("main");
         // else show error message
     }
