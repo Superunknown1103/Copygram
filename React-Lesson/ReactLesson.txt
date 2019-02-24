@@ -1,0 +1,71 @@
+State and Props in React.js
+
+1. The concepts of state and props in React.js are one of the most famous tools provided by React.js.
+
+2. State and props are the ways in which you can pass data around in a React application.
+
+Props
+
+You can think of props as short for properties, just as you might consider a regular javascript object that has properties such as:
+
+var car = {type: "BMW", model: "M4", color: "gold"}
+
+-> see welcome function example
+
+-> then look at multiple welcome example
+
+If we take a look at this multiple welcome example, we now see that it is easier for us to create reusable components if we can change the properties
+passed in. You can visualize a Welcome component, perhaps a car, all of these things should be manipulatable and React gives us the ability to do that.
+
+<Welcome greeting="What's up?" name="Sara" />
+
+What's up?
+How are you?
+Good morning?
+Bye!
+
+<Car type="BMW" model="Z4" image="someimageplace.com/z4.jpg" />
+
+How about a more complex example?
+
+Consider the Comment, that essentially gets everything it needs to formulate itself through its props.
+
+-> see comment example
+
+While this comment has made great use of props, it can be simplified. You may notice that it has nested objects.
+Such as props.author.avatarUrl.
+
+The avatar component does not need to know that it is rendered inside a comment. We can simplify it by making the author,
+a user instead. 
+
+Important! Think of naming your props from the components point of view rather than the context in which it is being used.
+
+----------------------------------------------------------------------
+State 
+
+State is similar to props, but it is private and fully controlled by the component.
+An easy way to look at state is to look at a clock component. This clock component should be able to update
+itself.
+
+According to React, state is only available to class components, so we will not be able to keep
+this JSX structure. Our end result should just render the Clock component and it will take care of the counting.
+
+side quest: what is toLocaleTimeString() ? 
+
+// to do -> finish writing part about how to use state and practice giving 30 minute lecture on this.
+
+Rendering just <Clock /> will have both the text above the clock and will have it ticking every second.
+
+
+
+
+
+
+
+
+5. One of the best parts about state is that any time the DOM re-renders, state will update itself with any changes applied.
+    - This is part of how react manages the real DOM using the virtual DOM.
+    - The reason this is great is because the DOM is actually quite slow and javascript is fast so by allievating the DOM of the responsibility of updating parts of itself,
+    feeding it the DOM and allowing React to re-render only the affected nodes is more efficient than perhaps using regular javascript otherwise.
+
+
